@@ -1,0 +1,1 @@
+roslaunch trybot_description trybot_rviz.launch
