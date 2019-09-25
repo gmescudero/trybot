@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<robot>
+
+	<gazebo>
+	  <static>false</static>
+		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+			<robotNamespace>/trybot</robotNamespace>
+			<robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+    	<legacyModeNS>true</legacyModeNS>
+		</plugin>
+	</gazebo>
+
+  <gazebo reference="axis1">
+    <material>Gazebo/Orange</material>
+  </gazebo>
+  <gazebo reference="axis2">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+	<gazebo reference="axis3">
+    <material>Gazebo/Red</material>
+  </gazebo>
+	<gazebo reference="flange">
+    <material>Gazebo/Green</material>
+  </gazebo>
+</robot>
