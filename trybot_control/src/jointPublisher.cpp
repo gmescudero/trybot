@@ -13,10 +13,10 @@
 /rosout_agg
 /tf
 /tf_static
-/trybot/joint_1_position_controller/command
-/trybot/joint_1_position_controller/pid/parameter_descriptions
-/trybot/joint_1_position_controller/pid/parameter_updates
-/trybot/joint_1_position_controller/state
+/trybot/joint1_position_controller/command
+/trybot/joint1_position_controller/pid/parameter_descriptions
+/trybot/joint1_position_controller/pid/parameter_updates
+/trybot/joint1_position_controller/state
 /trybot/joint2_position_controller/command
 /trybot/joint2_position_controller/pid/parameter_descriptions
 /trybot/joint2_position_controller/pid/parameter_updates
@@ -33,7 +33,7 @@
 #include "sensor_msgs/JointState.h"
 #include "std_msgs/Float64.h"
 
-#define TOPIC "/trybot/joint_1_position_controller/command"
+#define TOPIC "/trybot/joint1_position_controller/command"
 
 const char nodeName[] = "comander_node";
 int main(int argc, char **argv)

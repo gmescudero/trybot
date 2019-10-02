@@ -133,7 +133,7 @@
     <child link="axis1"/>
   </joint>
 
-  <joint name="joint_1" type="prismatic">
+  <joint name="joint1" type="prismatic">
     <limit lower="-0.45" upper="0.45" effort="12" velocity="2.443"/>
   	<parent link="axis1" />
   	<child link="axis2" />
@@ -159,12 +159,12 @@
 
   <!-- ************* ACTUATOR TRANSMISSIONS ************* -->
 
-	<transmission name="joint_1_trans">
+	<transmission name="joint1_trans">
 		<type>transmission_interface/SimpleTransmission</type>
-		<joint name="joint_1">
+		<joint name="joint1">
 			<hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
 		</joint>
-		<actuator name="joint_1_motor">
+		<actuator name="joint1_motor">
 			<mechanicalReduction>1</mechanicalReduction>
 		</actuator>
 	</transmission>
