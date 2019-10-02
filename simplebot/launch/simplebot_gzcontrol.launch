@@ -25,7 +25,7 @@
   <!-- load the controllers -->
 
   <rosparam file="$(find simplebot)/config/simplebot.yaml" command="load"/>
-  <node name="controller_spawner" pkg ="controller_manager" type="spawner" ns="/simplebot" args="base_to_second_joint_position_controller joint_state_controller --shutdown-timeout 3"/>
+  <node name="controller_spawner" pkg ="controller_manager" type="spawner" ns="/simplebot" args="base_to_second_joint_position_controller joint_state_controller"/>
 
   <!-- converts joint states to TF transforms -->
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
