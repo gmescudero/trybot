@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<launch>
+  <include file="$(find trybot_gazebo)/launch/trybot_world.launch"/>
+  <include file="$(find trybot_control)/launch/trybot_control.launch"/>
+</launch>

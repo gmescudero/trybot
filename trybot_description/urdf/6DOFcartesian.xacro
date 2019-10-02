@@ -92,18 +92,16 @@
 	</collision>
   </link>
 
- <!-- ********************* FLANGE ********************* -->
-  <link name="flange">
+ <!-- ********************* AXIS-4 ********************* -->
+  <link name="axis4">
   	<visual>
-	  <origin xyz="0 0 0.07" rpy="0 0 0" />
-  	  <geometry>
-				<!--<box size="1.0 1.0 -0.1"/>-->
-        <!--box size="0.1 0.1 0.2"/-->
-				<cylinder radius="0.05" length="0.04" />
-  	  </geometry>
-  	  <material name="green">
-  		<color rgba="0 1 0 1" />
-  	  </material>	  
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.05" length="0.05" />
+      </geometry>
+      <material name="greyGreen">
+      <color rgba="0 0.5 0 0.5" />
+      </material>	  
   	</visual>
 
 	<inertial>
@@ -115,12 +113,95 @@
 	</inertial>
 
 	<collision>
-	  <origin xyz="0 0 0.07" rpy="0 0 0" />
-  	  <geometry>
-				<!--<box size="1.0 1.0 -0.1"/>-->
-        <!--box size="0.1 0.1 0.2"/-->
-				<cylinder radius="0.05" length="0.04" />
-  	  </geometry>
+	  <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <cylinder radius="0.05" length="0.05" />
+    </geometry>
+	</collision>
+  </link>
+
+ <!-- ********************* AXIS-5 ********************* -->
+  <link name="axis5">
+  	<visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.05" length="0.05" />
+      </geometry>
+      <material name="darkGreen">
+      <color rgba="0 0.2 0 0.2" />
+      </material>	  
+  	</visual>
+
+	<inertial>
+	  <mass value="0.028100"/>
+	  <inertia
+		  ixx="0.00011708" ixy="0.0" ixz="0.0"
+		  iyy="0.000046833" iyz="0.0"
+		  izz="0.00011708"/>
+	</inertial>
+
+	<collision>
+	  <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <cylinder radius="0.05" length="0.05" />
+    </geometry>
+	</collision>
+  </link>
+
+ <!-- ********************* AXIS-6 ********************* -->
+  <link name="axis6">
+  	<visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.05" length="0.05" />
+      </geometry>
+      <material name="grey">
+      <color rgba="0 0.5 0.5 0.5" />
+      </material>	  
+  	</visual>
+
+	<inertial>
+	  <mass value="0.028100"/>
+	  <inertia
+		  ixx="0.00011708" ixy="0.0" ixz="0.0"
+		  iyy="0.000046833" iyz="0.0"
+		  izz="0.00011708"/>
+	</inertial>
+
+	<collision>
+	  <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <cylinder radius="0.05" length="0.05" />
+    </geometry>
+	</collision>
+  </link>
+
+ <!-- ********************* FLANGE ********************* -->
+  <link name="flange">
+  	<visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.1 0.1 0.05"/>
+        <!--cylinder radius="0.055" length="0.05" /-->
+      </geometry>
+      <material name="black">
+      <color rgba="0 0 0 0" />
+      </material>	  
+  	</visual>
+
+	<inertial>
+	  <mass value="0.028100"/>
+	  <inertia
+		  ixx="0.00011708" ixy="0.0" ixz="0.0"
+		  iyy="0.000046833" iyz="0.0"
+		  izz="0.00011708"/>
+	</inertial>
+
+	<collision>
+	  <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <cylinder radius="0.05" length="0.05" />
+    </geometry>
 	</collision>
   </link>
 
@@ -149,11 +230,35 @@
   </joint>
 
 	<joint name="joint_3" type="prismatic">
-    <limit lower="-0.4" upper="0.5" effort="12" velocity="2.443"/>
+    <limit lower="-0.3" upper="0.5" effort="12" velocity="2.443"/>
   	<parent link="axis3" />
-  	<child link="flange" />
-    <origin xyz="-0.5 0 0" rpy="0 1.570796 0"/>
+  	<child link="axis4" />
+    <origin xyz="-0.425 0 0" rpy="0 1.570796 0"/>
+    <axis xyz="1 0 0"/>
+  </joint>
+
+  <joint name="joint_4" type="revolute">
+    <limit lower="-3.14" upper="3.14" effort="12" velocity="2.443"/>
+  	<parent link="axis4" />
+  	<child link="axis5" />
+    <origin xyz="0 0 0.075" rpy="0 1.570796 1.570796"/>
+    <axis xyz="0 1 0" />
+  </joint>
+
+  <joint name="joint_5" type="revolute">
+    <limit lower="-3.14" upper="3.14" effort="12" velocity="2.443"/>
+  	<parent link="axis5" />
+  	<child link="axis6" />
+    <origin xyz="-0.075 0 0" rpy="0 1.570796 0"/>
     <axis xyz="1 0 0" />
+  </joint>
+
+  <joint name="joint_6" type="revolute">
+    <limit lower="-3.14" upper="3.14" effort="12" velocity="2.443"/>
+  	<parent link="axis6" />
+  	<child link="flange" />
+    <origin xyz="0 0 -0.05" rpy="0 0 0"/>
+    <axis xyz="0 0 1" />
   </joint>
 
   <!-- ************* ACTUATOR TRANSMISSIONS ************* -->

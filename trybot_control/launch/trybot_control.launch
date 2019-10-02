@@ -13,6 +13,6 @@
     <remap from="/joint_states" to="/trybot/joint_states" />
   </node>
 
-  <node name="comander_node" pkg="trybot_control" type="comander_node" output="screen"/>
+  <!--node name="comander_node" pkg="trybot_control" type="comander_node" output="screen"/-->
 
 </launch>
