@@ -10,6 +10,7 @@ add_compile_options(-std=c++11)
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   std_msgs
+  sensor_msgs
   gazebo_ros
 )
 find_package(gazebo REQUIRED)
@@ -148,8 +149,7 @@ include_directories(include  include/${PROJECT_NAME} ${catkin_INCLUDE_DIRS} ${GA
 #   ${catkin_LIBRARIES}
 # )
 
-add_executable(comander_node src/jointPublisher.cpp)
-#add_dependencies(jointCommand_node ${PROJECT_NAME}_generate_messages_cpp)
+add_executable(comander_node src/jointRvizPublisher.cpp)
 target_link_libraries(comander_node ${catkin_LIBRARIES})
 
 #############

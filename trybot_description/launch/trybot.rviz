@@ -116,7 +116,7 @@ Visualization Manager:
       Size (Pixels): 3
       Size (m): 0.00999999978
       Style: Flat Squares
-      Topic: /rrbot/laser/scan
+      Topic: /trybot/laser/scan
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
@@ -124,7 +124,7 @@ Visualization Manager:
     - Class: rviz/Camera
       Enabled: true
       Image Rendering: background and overlay
-      Image Topic: /rrbot/camera1/image_raw
+      Image Topic: /trybot/camera1/image_raw
       Name: Camera
       Overlay Alpha: 0.5
       Queue Size: 2
