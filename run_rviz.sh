@@ -27,7 +27,7 @@ while getopts "tnch" opt; do
             ;;
         c) # Cartesian
             echo "Launching cartesian simulation (WIP)"
-            roslaunch 6DOFCartesian 6DOFCartesian_rviz.launch
+            roslaunch orientable_cartesian orientable_cartesian_rviz.launch
             ;;
         h) helpFunction ;; #Print help
         ?) helpFunction ;; #Print help

@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>6DOF_Cartesian</name>
+  <name>orientable_cartesian</name>
   <version>0.0.0</version>
-  <description>The 6DOF_Cartesian package</description>
+  <description>The orientable_cartesian package</description>
   <maintainer email="german.moreno@gtd.eu">gmoreno</maintainer>
   <license>BSD</license>
 

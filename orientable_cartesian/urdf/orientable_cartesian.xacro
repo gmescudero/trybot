@@ -1,0 +1,240 @@
+<?xml version='1.0'?>
+
+<robot name="orientable_cartesian" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- MATERIALS -->
+  <xacro:include filename="$(find orientable_cartesian)/urdf/materials.xacro" />
+
+  <!-- ******************* WORLD LINK ******************* -->
+  <link name="world">
+    <origin xyz="0 0 0.5" rpy="0 0 0" />
+  </link>
+
+  <!-- ******************* BASE LINK ******************** -->
+  <link name="base_link">
+  	<visual> 
+  	  <geometry>
+        <box size="0.1 0.1 1.0"/>
+  	  </geometry>
+      <material name="yellow"/>
+  	</visual>
+
+    <collision>
+      <geometry>
+        <box size="0.1 0.1 1.0"/>
+      </geometry>
+    </collision>
+
+    <inertial>
+      <mass value="0.1405"/>
+      <inertia
+        ixx="0.011825416666666668" ixy="0.0" ixz="0.0"
+        iyy="0.00023416666666666673" iyz="0.0"
+        izz="0.011825416666666668"/>
+    </inertial>
+  </link>
+
+  <!-- ******************** LINK-1 ********************** -->
+  <link name="link1">
+  	<visual>
+  	  <geometry>
+        <box size="1.0 0.1 0.1"/>
+  	  </geometry>
+  	  <material name="blue"/>
+  	</visual>
+
+    <collision>
+      <geometry>
+        <box size="1.0 0.1 0.1"/>
+      </geometry>
+    </collision>
+
+
+    <inertial>
+      <mass value="0.1405"/>
+      <inertia
+        ixx="0.011825416666666668" ixy="0.0" ixz="0.0"
+        iyy="0.00023416666666666673" iyz="0.0"
+        izz="0.011825416666666668"/>
+    </inertial>
+  </link>
+
+  <!-- ******************** LINK-2 ********************** -->
+  <link name="link2">
+  	<visual>
+  	  <geometry>
+        <box size="0.1 1.0 0.1"/>
+  	  </geometry>
+  	  <material name="red"/>
+  	</visual>
+
+    <collision>
+      <geometry>
+        <box size="0.1 1.0 0.1"/>
+      </geometry>
+    </collision>
+
+
+    <inertial>
+      <mass value="0.1405"/>
+      <inertia
+        ixx="0.011825416666666668" ixy="0.0" ixz="0.0"
+        iyy="0.00023416666666666673" iyz="0.0"
+        izz="0.011825416666666668"/>
+    </inertial>
+  </link>
+
+  <!-- ******************** LINK-3 ********************** -->
+  <link name="link3">
+  	<visual>
+  	  <geometry>
+        <cylinder radius="0.05" length="0.1" />
+  	  </geometry>
+  	  <material name="green"/>
+  	</visual>
+
+    <collision>
+      <geometry>
+        <cylinder radius="0.05" length="0.1" />
+      </geometry>
+    </collision>
+
+    <inertial>
+      <mass value="0.028100"/>
+      <inertia
+        ixx="0.00011708" ixy="0.0" ixz="0.0"
+        iyy="0.000046833" iyz="0.0"
+        izz="0.00011708"/>
+    </inertial>
+  </link>
+
+  <!-- ******************** LINK-4 ********************** -->
+  <link name="link4">
+  	<visual>
+  	  <geometry>
+        <cylinder radius="0.05" length="0.1" />
+  	  </geometry>
+  	  <material name="orange"/>
+  	</visual>
+
+    <collision>
+      <geometry>
+        <cylinder radius="0.05" length="0.1" />
+      </geometry>
+    </collision>
+
+    <inertial>
+      <mass value="0.028100"/>
+      <inertia
+        ixx="0.00011708" ixy="0.0" ixz="0.0"
+        iyy="0.000046833" iyz="0.0"
+        izz="0.00011708"/>
+    </inertial>
+  </link>
+
+  <!-- ******************** LINK-5 ********************** -->
+  <link name="link5">
+  	<visual>
+      <origin xyz="0 0 0.1" rpy="0 0 0" />
+  	  <geometry>
+        <cylinder radius="0.05" length="0.1" />
+  	  </geometry>
+  	  <material name="black"/>
+  	</visual>
+
+    <collision>
+      <geometry>
+        <cylinder radius="0.05" length="0.1" />
+      </geometry>
+    </collision>
+
+    <inertial>
+      <mass value="0.028100"/>
+      <inertia
+        ixx="0.00011708" ixy="0.0" ixz="0.0"
+        iyy="0.000046833" iyz="0.0"
+        izz="0.00011708"/>
+    </inertial>
+  </link>
+
+  <!-- ******************** FALNGE ********************** -->
+  <link name="flange">
+  	<visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+  	  <geometry>
+        <box size="0.1 0.1 0.05"/>
+  	  </geometry>
+  	  <material name="brown"/>
+  	</visual>
+
+    <collision>
+      <geometry>
+        <box size="0.1 0.1 0.05"/>
+      </geometry>
+    </collision>
+
+    <inertial>
+      <mass value="0.028100"/>
+      <inertia
+        ixx="0.00011708" ixy="0.0" ixz="0.0"
+        iyy="0.000046833" iyz="0.0"
+        izz="0.00011708"/>
+    </inertial>
+  </link>
+
+  <!-- ********************* JOINTS ********************* -->
+  <joint name="world_joint"  type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+
+  <joint name="cartesian_z" type="prismatic">
+    <limit lower="-0.45" upper="0.45" effort="12" velocity="2.443"/>
+  	<parent link="base_link" />
+  	<child link="link1" />
+    <origin xyz="0.55 0 0" rpy="0 0 0"/>
+    <axis xyz="0 0 1" />
+  </joint>
+
+  <joint name="cartesian_x" type="prismatic">
+    <limit lower="-0.45" upper="0.45" effort="12" velocity="2.443"/>
+  	<parent link="link1" />
+  	<child link="link2" />
+    <origin xyz="0 0.55 0" rpy="0 0 0"/>
+    <axis xyz="1 0 0" />
+  </joint>
+
+  <joint name="cartesian_y" type="prismatic">
+    <limit lower="-0.45" upper="0.45" effort="12" velocity="2.443"/>
+  	<parent link="link2" />
+  	<child link="link3" />
+    <origin xyz="0 0 -0.1" rpy="0 0 0"/>
+    <axis xyz="0 1 0" />
+  </joint>
+
+  <joint name="orientation_yaw" type="revolute">
+    <limit lower="-3.14" upper="3.14" effort="12" velocity="2.443"/>
+  	<parent link="link3" />
+  	<child link="link4" />
+    <origin xyz="0 0 -0.1" rpy="1.570796 0 0"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <joint name="orientation_pitch" type="revolute">
+    <limit lower="-1.570796" upper="1.570796" effort="12" velocity="2.443"/>
+  	<parent link="link4" />
+  	<child link="link5" />
+    <origin xyz="0 0 0" rpy="1.570796 0 0"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <joint name="orientation_roll" type="revolute">
+    <limit lower="-3.14" upper="3.14" effort="12" velocity="2.443"/>
+  	<parent link="link5" />
+  	<child link="flange" />
+    <origin xyz="0 0 0.15" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+</robot>
