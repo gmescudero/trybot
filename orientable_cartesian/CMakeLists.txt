@@ -11,3 +11,6 @@ install(DIRECTORY launch urdf stl rviz
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
 
 include_directories(include ${catkin_INCLUDE_DIRS})
+
+add_executable(comander_node src/demo_Controller.cpp)
+target_link_libraries(comander_node ${catkin_LIBRARIES})
